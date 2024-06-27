@@ -1,0 +1,6 @@
+[submodule ".zsh_plugins/zsh-nvm"]
+	path = .zsh_plugins/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm.git
+[submodule ".zsh_plugins/zsh-roundy-prompt"]
+	path = .zsh_plugins/zsh-roundy-prompt
+	url = https://github.com/metaory/zsh-roundy-prompt

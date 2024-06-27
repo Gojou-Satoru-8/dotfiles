@@ -79,7 +79,19 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # export STARSHIP_CONFIG=~/.config/starship/starship_pure.toml
 
 # oh-my-posh:
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/spaceship.omp.json --manual)"
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/spaceship.omp.json)"
+# enable_poshtransientprompt=true
+
+# roundy:
+# source "$HOME/.zsh_plugins/zsh-roundy-prompt/roundy.plugin.zsh"
 
 # -------------------- STARTUP PROGRAMS --------------------:
 macchina
+
+# pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# nvm setup (through zsh-nvm plugin, installed as a git submodule)
+source "$HOME/.zsh_plugins/zsh-nvm/zsh-nvm.plugin.zsh"

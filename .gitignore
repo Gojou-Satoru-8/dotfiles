@@ -2,5 +2,9 @@
 *
 # Except these files
 !.gitignore
+!.gitmodules
 !.zshrc
-!.zsh_plugins/*
+!.zsh_plugins/
+!.zsh_plugins/**
+# Include everything inside .zsh_plugins except
+.zsh_plugins/.DS_Store
