@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Enable colors in ls (ie make ls -G default):
 export CLICOLOR=1
 export LSCOLORS=FxcxcxDxCxegedabagacad
@@ -65,16 +72,16 @@ FAST_HIGHLIGHT[chroma-man]=
 
 # -------------------- PROMPTS --------------------
 # powerlevel10k:
-# source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # starship:
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 # By default, starship looks for starship.toml at ~/.config/
 # Uncomment one of these lines to select the config / theme:
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # export STARSHIP_CONFIG=~/.config/starship/starship_pills.toml
 # export STARSHIP_CONFIG=~/.config/starship/starship_pure.toml
 
@@ -85,8 +92,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # roundy:
 # source "$HOME/.zsh_plugins/zsh-roundy-prompt/roundy.plugin.zsh"
 
-# -------------------- STARTUP PROGRAMS --------------------:
-macchina
+# -------------------- STARTUP CONFIG --------------------:
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -95,3 +101,27 @@ eval "$(pyenv init -)"
 
 # nvm setup (through zsh-nvm plugin, installed as a git submodule)
 source "$HOME/.zsh_plugins/zsh-nvm/zsh-nvm.plugin.zsh"
+
+# Aliases:
+alias sudo="sudo "
+alias vim=nvim
+alias ll="lsd -lh"
+alias lla="lsd -lhA"
+# alias llt="lsd --tree --depth 1"
+# alias llt2="lsd --tree --depth 2"
+# alias llt3="lsd --tree --depth 3"
+function llt () {
+    local num=${1:-1}
+    if [[ num -gt 5 ]]; then
+        echo "Tree too large... Permissible range: 1 through 5"
+    else 
+        lsd --tree --depth $num
+    fi
+}
+
+# -------------------- STARTUP PROGRAMS --------------------:
+# macchina
+fastfetch --pipe false
+
+
+[[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
