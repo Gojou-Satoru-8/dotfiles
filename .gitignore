@@ -3,7 +3,12 @@
 # Except these files
 !.gitignore
 !.gitmodules
+!.gitconfig
 !.zshrc
+!.zprofile
+
+# Directories to be excluded from ignoring
+!.zsh_plugins/
 !.zsh_plugins/**
 # Include everything inside .zsh_plugins except
 .zsh_plugins/.DS_Store

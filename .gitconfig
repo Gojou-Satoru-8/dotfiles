@@ -1,0 +1,14 @@
+[include]
+  path = /Users/ankush/.config/delta/themes.gitconfig
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    side-by-side = true
+    features = arctic-fox
+    keep-plus-minus-markers = true
+

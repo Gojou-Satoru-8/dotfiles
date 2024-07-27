@@ -69,6 +69,9 @@ source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlight
 # To prevent man page being highlighted (otherwise slows down the shell upon typing "man")
 FAST_HIGHLIGHT[chroma-man]=
 
+# ------------ Manually added plugins from oh-my-zsh ------------
+# zsh-sudo plugin
+source $HOME/.zsh_plugins/zsh-sudo/sudo.plugin.zsh
 
 # -------------------- PROMPTS --------------------
 # powerlevel10k:
@@ -94,13 +97,10 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # -------------------- STARTUP CONFIG --------------------:
 
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# nvm setup (through zsh-nvm plugin, installed as a git submodule)
-source "$HOME/.zsh_plugins/zsh-nvm/zsh-nvm.plugin.zsh"
+# Docker Autocomplete plugin:
+fpath=(~/.docker/completions \/Applications/kitty.app/Contents/Resources/kitty/shell-integration/zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions /opt/homebrew/share/zsh-fast-syntax-highlighting)
+autoload -Uz compinit
+compinit
 
 # Aliases:
 alias sudo="sudo "
@@ -114,7 +114,7 @@ function llt () {
     local num=${1:-1}
     if [[ num -gt 5 ]]; then
         echo "Tree too large... Permissible range: 1 through 5"
-    else 
+    else
         lsd --tree --depth $num
     fi
 }
