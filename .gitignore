@@ -6,6 +6,7 @@
 !.gitconfig
 !.zshrc
 !.zprofile
+!.zshenv
 
 # Directories to be excluded from ignoring
 !.zsh_plugins/

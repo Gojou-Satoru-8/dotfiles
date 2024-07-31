@@ -115,9 +115,19 @@ function llt () {
     if [[ num -gt 5 ]]; then
         echo "Tree too large... Permissible range: 1 through 5"
     else
-        lsd --tree --depth $num
+        lsd --tree --depth $num ${2:-$PWD}
     fi
 }
+
+# Force colors when piping
+# NOTE: This causes issues while redirecting to file or using tee, internal commands (like ls) are exempted 
+# alias ls="ls --color=always"
+alias lsd="lsd --color=always"
+alias ccat="ccat --color=always"
+alias bat="bat -f"
+alias rg="rg --color=always"
+alias config="cd ~/.config"
+alias work="cd ~/OneDrive/Dev/"
 
 # -------------------- STARTUP PROGRAMS --------------------:
 # macchina
