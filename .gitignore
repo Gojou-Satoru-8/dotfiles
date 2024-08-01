@@ -13,3 +13,22 @@
 !.zsh_plugins/**
 # Include everything inside .zsh_plugins except
 .zsh_plugins/.DS_Store
+
+# Config files:
+!.config/
+!.config/delta/
+!.config/delta/**
+!.config/helix/
+!.config/helix/**
+!.config/fastfetch/
+!.config/fastfetch/**
+!.config/macchina
+!.config/macchina/**
+!.config/kitty
+!.config/kitty/**
+!.config/zed/
+!.config/zed/settings.json
+!.config/zed/themes/
+!.config/zed/themes/**
+!.config/starship/
+!.config/starship/**

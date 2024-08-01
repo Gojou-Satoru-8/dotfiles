@@ -1,0 +1,18 @@
+theme = "cyberdream"
+
+[editor]
+cursorline = true
+cursorcolumn = false
+completion-trigger-len = 3
+true-color = true
+color-modes = true
+bufferline = "always"
+
+[editor.cursor-shape]
+normal = "underline"
+insert = "bar"
+select = "bar"
+
+[keys.normal]
+"pageup" = "half_page_up"
+"pagedown" = "half_page_down"
