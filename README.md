@@ -55,5 +55,5 @@ To set up your environment using these dotfiles:
    cp ~/dotfiles/.git* ~/ 
    ```
 ## Credits:
-1. Delta Config: The themes file inside delta is a collection of all major themes contributed by users in the main [Delta repository][https://github.com/dandavison/delta/].
+1. Delta Config: The themes file inside delta is a collection of all major themes contributed by users in the main [Delta repository](https://github.com/dandavison/delta/).
 2. Starship: The Starship default prompt was copied from a YouTube video (I shall put the link here, when I find the video).
