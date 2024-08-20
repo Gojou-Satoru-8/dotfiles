@@ -115,7 +115,7 @@ function llt () {
     if [[ num -gt 5 ]]; then
         echo "Tree too large... Permissible range: 1 through 5"
     else
-        lsd --tree --depth $num ${2:-$PWD}
+        lsd --tree --depth $num ${2:-$PWD} --color=always
     fi
 }
 
@@ -128,6 +128,9 @@ alias bat="bat -f"
 alias rg="rg --color=always"
 alias config="cd ~/.config"
 alias work="cd ~/OneDrive/Dev/"
+
+# thefuck config:
+eval $(thefuck --alias)
 
 # -------------------- STARTUP PROGRAMS --------------------:
 # macchina
