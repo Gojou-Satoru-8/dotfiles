@@ -1,3 +1,12 @@
+[user]
+	name = Ankush
+	email = me@ankushbhowmik.com
+	signingkey = C56AA78FA9DCA779
+# This ensures that commits in personal repo will be signed
+
+[includeIf "gitdir:~/Legitt/"]
+  path = ~/.gitconfig-work  # Contains work email/key
+
 [include]
   path = /Users/ankush/.config/delta/themes.gitconfig
 
@@ -12,6 +21,11 @@
     features = arctic-fox
     keep-plus-minus-markers = true
 
-[user]
-	name = Gojou-Satoru-8
-	email = me@ankushbhowmik.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+  required = true
+
+#[commit]
+#	gpgsign = true

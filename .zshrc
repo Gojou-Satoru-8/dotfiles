@@ -9,6 +9,11 @@ fi
 export CLICOLOR=1
 export LSCOLORS=FxcxcxDxCxegedabagacad
 
+# syntax-highliting for less:
+LESSPIPE=`which src-hilite-lesspipe.sh`
+export LESSOPEN="| ${LESSPIPE} %s"
+export LESS=' -R -X -F '
+
 # Tab-completion type and colors:
 autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
@@ -102,6 +107,9 @@ fpath=(~/.docker/completions \/Applications/kitty.app/Contents/Resources/kitty/s
 autoload -Uz compinit
 compinit
 
+# AWS autocomplete:
+source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
+
 # Aliases:
 alias sudo="sudo "
 alias vim=nvim
@@ -118,6 +126,24 @@ function llt () {
         lsd --tree --depth $num ${2:-$PWD} --color=always
     fi
 }
+
+# List java versions:
+alias java_list="/usr/libexec/java_home -V"
+
+# Switch between java versions:
+java_switch () {
+  if [ -z "$1" ]; then
+    echo "Usage: switch_java <version>"
+    return 1
+  fi
+
+  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
+  export PATH="$JAVA_HOME/bin:$PATH"
+
+  echo "Switched JAVA_HOME to $JAVA_HOME"
+  java -version
+}
+
 
 # Force colors when piping
 # NOTE: This causes issues while redirecting to file or using tee, internal commands (like ls) are exempted 
@@ -138,3 +164,11 @@ fastfetch --pipe false
 
 
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
+
+# Added by Windsurf
+# export PATH="/Users/ankush/.codeium/windsurf/bin:$PATH"
+
+# Add GPG prompt for passphrase support for signing commits
+export GPG_TTY=$(tty)
+
+export TEST_zshrc="Hello from .zshrc file"
