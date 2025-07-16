@@ -32,3 +32,5 @@
 !.config/zed/themes/**
 !.config/starship/
 !.config/starship/**
+!.config/ghostty/
+!.config/ghostty/**
