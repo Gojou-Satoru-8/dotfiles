@@ -154,6 +154,7 @@ alias bat="bat -f"
 alias rg="rg --color=always"
 alias config="cd ~/.config"
 alias work="cd ~/OneDrive/Dev/"
+alias ncdu="ncdu --color dark"
 
 # thefuck config:
 eval $(thefuck --alias)
